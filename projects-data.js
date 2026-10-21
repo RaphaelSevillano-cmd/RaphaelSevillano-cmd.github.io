@@ -2,30 +2,28 @@
  * PROJECT DATA MODEL
  * -------------------
  * This is the ONLY file you need to edit to add, remove, or update a project.
- * The homepage, the /projects page, and the search/filter system all read
- * from this array — nothing else needs to change.
+ * The homepage, the Projects page, the search/filter system, and the Details popup
+ * all read from this list.
  *
- * Fields: 
- *  id            - unique slug, used in URLs (lowercase, hyphenated)
+ * Fields:
+ *  id            - unique slug (lowercase, hyphenated)
  *  title         - Project Name
- *  category       - one of: "Web Development", "Mobile Application",
- *                  "Information System", "Networking", "Research",
- *                  "Database", "Graphic Design", "Automation"
+ *  category      - "Web Development", "Mobile Application", "Information System", "Networking",
+ *                  "Research", "Database", "Graphic Design", "Automation"
  *  description   - one or two sentence summary for the card
  *  year          - Project Date/Year
- *  technologies  - array of strings 
+ *  technologies  - array of strings
  *  role          - Creator's Role
  *  status        - "Completed" | "In Progress" | "Coursework"
- *  liveUrl       - live/demo link, or "" if none
+ *  liveUrl       - live/demo link, or "" if none (button only shows when a link exists)
  *  githubUrl     - source code link, or "" if none
- *  detailUrl     - path to the individual project page
  *  featured      - true to show on the homepage
- *  image         - path to the card/detail image ("" if none)
- *  imageAlt      - alt text for the image
+ *  image         - path to the card image ("" if none), imageAlt - its alt text
  *  imageFit      - "cover" or "contain" (use contain for logos)
  *  imageBg       - optional background color behind a "contain" image
- *  features      - array of strings shown on the detail page
- *  problem / solution - shown on the detail page
+ *  screenshots   - array of { src, alt } shown in the Details popup
+ *  features      - array of strings shown in the Details popup
+ *  problem / solution - shown in the Details popup
  */
 
 const PROJECTS = [
@@ -40,12 +38,12 @@ const PROJECTS = [
     status: "In Progress",
     liveUrl: "",
     githubUrl: "",
-    detailUrl: "projects/web-portfolio/",
     featured: true,
     image: "assets/images/web-portfolio.webp",
     imageAlt: "Screenshot of the portfolio's Projects page showing a search bar, category and year filters, and project cards",
     imageFit: "cover",
     imageBg: "",
+    screenshots: [{"src": "assets/images/web-portfolio.webp", "alt": "Screenshot of the portfolio's Projects page showing a search bar, category and year filters, and project cards"}],
     features: ["Responsive layout with a hamburger menu on small screens", "Project search and category/year filters that update without reloading", "Dark and light mode saved in the browser", "Downloadable CV with a View Online option", "Contact form with a hidden spam-protection field", "Projects managed from a single data file"],
     problem: "I needed one professional place to show my background, skills, and projects to employers, classmates, and instructors.",
     solution: "I built a multi-page site with a shared design system based on my RS Spike brand colors, and moved all project content into one data file so adding a project never requires redesigning a page.",
@@ -58,15 +56,15 @@ const PROJECTS = [
     year: "2026",
     technologies: ["GIMP", "SVG", "Design Systems", "Branding"],
     role: "Designer & Illustrator",
-    status: "Completed",
+    status: "In Progress",
     liveUrl: "",
     githubUrl: "",
-    detailUrl: "projects/rs-spike-logo/",
     featured: true,
     image: "assets/images/rs-spike-logo.webp",
     imageAlt: "RS Volleyball logo: a blue and yellow volleyball with a bold RS monogram, an orange spike burst, and the tagline Love at First Spike",
     imageFit: "contain",
     imageBg: "",
+    screenshots: [{"src": "assets/images/rs-spike-logo.webp", "alt": "RS Volleyball logo: a blue and yellow volleyball with a bold RS monogram, an orange spike burst, and the tagline Love at First Spike"}],
     features: ["Volleyball emblem with a bold RS monogram", "Orange spike burst that adds motion and energy", "Tagline: “Love at First Spike”", "Locked navy and gold palette reused across this portfolio"],
     problem: "A personal volleyball brand needed a recognizable identity that stays readable at different sizes and backgrounds.",
     solution: "I combined a volleyball emblem with an RS monogram and a spike burst, locked a color palette, and built the final file by hand in GIMP.",
@@ -82,12 +80,12 @@ const PROJECTS = [
     status: "Completed",
     liveUrl: "",
     githubUrl: "",
-    detailUrl: "projects/rs-daily-brew/",
     featured: true,
     image: "assets/images/rs-daily-brew-poster.webp",
     imageAlt: "RS Daily Brew poster with a large RS monogram, curved taglines Sip Brew Repeat and Coffee Comfort Connection, and a menu listing Caramel Machiato, Spanish Latte and Praf Java Chip",
     imageFit: "contain",
     imageBg: "#f5e9d3",
+    screenshots: [{"src": "assets/images/rs-daily-brew-poster.webp", "alt": "RS Daily Brew poster with a large RS monogram, curved taglines Sip Brew Repeat and Coffee Comfort Connection, and a menu listing Caramel Machiato, Spanish Latte and Praf Java Chip"}],
     features: ["Contrasting display typefaces for “Daily” and “Brew”", "Curved taglines above and below the name", "Warm two-tone brown and caramel palette", "Menu section with three drinks and peso prices", "Closing line: “Freshly Brewed • Always Welcome”"],
     problem: "A coffee brand needed one poster that carries its name, personality, and menu using type alone.",
     solution: "I paired heavy display type with a lighter menu face, used curved taglines to frame the name, and kept a tight two-color palette so the hierarchy stays clear.",
@@ -103,12 +101,12 @@ const PROJECTS = [
     status: "Completed",
     liveUrl: "",
     githubUrl: "",
-    detailUrl: "projects/brew-haven/",
     featured: true,
     image: "assets/images/brew-haven-logo.webp",
     imageAlt: "Brew Haven logo: a cream circular badge with a pumpkin icon on a latte cup topped with whipped cream, beside a pumpkin and cinnamon sticks",
     imageFit: "contain",
     imageBg: "#d96a25",
+    screenshots: [{"src": "assets/images/brew-haven-logo.webp", "alt": "Brew Haven logo: a cream circular badge with a pumpkin icon on a latte cup topped with whipped cream, beside a pumpkin and cinnamon sticks"}, {"src": "assets/images/brew-haven-banner-ad.webp", "alt": "Brew Haven Pumpkin Spice Latte banner ad on a peach background with the tagline Every brew is a taste of haven"}],
     features: ["Round badge logo with a pumpkin mark", "Autumn palette of orange, cream, and cinnamon brown", "Banner ad with the tagline “Every brew is a taste of Haven”", "Matching illustration style across logo and ad"],
     problem: "A cozy café brand needed a logo and a seasonal promotion that look like they belong together.",
     solution: "I designed a simple badge logo, then reused its illustration style and palette in a Pumpkin Spice Latte banner ad.",
@@ -124,14 +122,15 @@ const PROJECTS = [
     status: "Coursework",
     liveUrl: "",
     githubUrl: "",
-    detailUrl: "projects/juicy-slices/",
     featured: false,
     image: "assets/images/juicy-slices.webp",
     imageAlt: "Hand-drawn watermelon with a cut slice, colored with markers on paper, titled Juicy Slices",
     imageFit: "cover",
     imageBg: "",
+    screenshots: [{"src": "assets/images/juicy-slices.webp", "alt": "Hand-drawn watermelon with a cut slice, colored with markers on paper, titled Juicy Slices"}],
     features: ["Layered green stripes for depth on the rind", "Detailed red slice with seeds", "Hand-lettered title and information block"],
     problem: "A class activity asked for a finished illustration practicing shape, color, and presentation.",
     solution: "I drew a single subject, colored it with markers using two greens for depth, and added a hand-lettered title and information block.",
   },
 ];
+
