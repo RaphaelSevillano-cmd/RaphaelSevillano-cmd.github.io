@@ -1,0 +1,137 @@
+/**
+ * PROJECT DATA MODEL
+ * -------------------
+ * This is the ONLY file you need to edit to add, remove, or update a project.
+ * The homepage, the /projects page, and the search/filter system all read
+ * from this array — nothing else needs to change.
+ *
+ * Fields: 
+ *  id            - unique slug, used in URLs (lowercase, hyphenated)
+ *  title         - Project Name
+ *  category       - one of: "Web Development", "Mobile Application",
+ *                  "Information System", "Networking", "Research",
+ *                  "Database", "Graphic Design", "Automation"
+ *  description   - one or two sentence summary for the card
+ *  year          - Project Date/Year
+ *  technologies  - array of strings 
+ *  role          - Creator's Role
+ *  status        - "Completed" | "In Progress" | "Coursework"
+ *  liveUrl       - live/demo link, or "" if none
+ *  githubUrl     - source code link, or "" if none
+ *  detailUrl     - path to the individual project page
+ *  featured      - true to show on the homepage
+ *  image         - path to the card/detail image ("" if none)
+ *  imageAlt      - alt text for the image
+ *  imageFit      - "cover" or "contain" (use contain for logos)
+ *  imageBg       - optional background color behind a "contain" image
+ *  features      - array of strings shown on the detail page
+ *  problem / solution - shown on the detail page
+ */
+
+const PROJECTS = [
+  {
+    id: "web-portfolio",
+    title: "Personal Web Portfolio",
+    category: "Web Development",
+    description: "This responsive portfolio website: a searchable project gallery driven by one data file, dark mode that remembers your choice, a downloadable CV, and a contact form with spam protection.",
+    year: "2026",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Accessibility"],
+    role: "Designer & Front-End Developer",
+    status: "In Progress",
+    liveUrl: "",
+    githubUrl: "",
+    detailUrl: "projects/web-portfolio/",
+    featured: true,
+    image: "assets/images/web-portfolio.webp",
+    imageAlt: "Screenshot of the portfolio's Projects page showing a search bar, category and year filters, and project cards",
+    imageFit: "cover",
+    imageBg: "",
+    features: ["Responsive layout with a hamburger menu on small screens", "Project search and category/year filters that update without reloading", "Dark and light mode saved in the browser", "Downloadable CV with a View Online option", "Contact form with a hidden spam-protection field", "Projects managed from a single data file"],
+    problem: "I needed one professional place to show my background, skills, and projects to employers, classmates, and instructors.",
+    solution: "I built a multi-page site with a shared design system based on my RS Spike brand colors, and moved all project content into one data file so adding a project never requires redesigning a page.",
+  },
+  {
+    id: "rs-spike-logo",
+    title: "RS Spike — Volleyball Brand Identity",
+    category: "Graphic Design",
+    description: "A complete logo system for a personal volleyball brand: four logo variations, a locked color palette, and a mood board, built from vector concept through to a hand-drawn GIMP production file.",
+    year: "2026",
+    technologies: ["GIMP", "SVG", "Design Systems", "Branding"],
+    role: "Designer & Illustrator",
+    status: "Completed",
+    liveUrl: "",
+    githubUrl: "",
+    detailUrl: "projects/rs-spike-logo/",
+    featured: true,
+    image: "assets/images/rs-spike-logo.webp",
+    imageAlt: "RS Volleyball logo: a blue and yellow volleyball with a bold RS monogram, an orange spike burst, and the tagline Love at First Spike",
+    imageFit: "contain",
+    imageBg: "",
+    features: ["Volleyball emblem with a bold RS monogram", "Orange spike burst that adds motion and energy", "Tagline: “Love at First Spike”", "Locked navy and gold palette reused across this portfolio"],
+    problem: "A personal volleyball brand needed a recognizable identity that stays readable at different sizes and backgrounds.",
+    solution: "I combined a volleyball emblem with an RS monogram and a spike burst, locked a color palette, and built the final file by hand in GIMP.",
+  },
+  {
+    id: "rs-daily-brew",
+    title: "RS Daily Brew — Typography Brand Poster",
+    category: "Graphic Design",
+    description: "A typography-driven brand poster for a coffee brand: a bold RS monogram, curved taglines, a two-tone brown and caramel palette, and a three-item menu with prices.",
+    year: "2026",
+    technologies: ["Typography", "Brand Identity", "Menu Design", "Layout"],
+    role: "Designer",
+    status: "Completed",
+    liveUrl: "",
+    githubUrl: "",
+    detailUrl: "projects/rs-daily-brew/",
+    featured: true,
+    image: "assets/images/rs-daily-brew-poster.webp",
+    imageAlt: "RS Daily Brew poster with a large RS monogram, curved taglines Sip Brew Repeat and Coffee Comfort Connection, and a menu listing Caramel Machiato, Spanish Latte and Praf Java Chip",
+    imageFit: "contain",
+    imageBg: "#f5e9d3",
+    features: ["Contrasting display typefaces for “Daily” and “Brew”", "Curved taglines above and below the name", "Warm two-tone brown and caramel palette", "Menu section with three drinks and peso prices", "Closing line: “Freshly Brewed • Always Welcome”"],
+    problem: "A coffee brand needed one poster that carries its name, personality, and menu using type alone.",
+    solution: "I paired heavy display type with a lighter menu face, used curved taglines to frame the name, and kept a tight two-color palette so the hierarchy stays clear.",
+  },
+  {
+    id: "brew-haven",
+    title: "Brew Haven — Café Logo & Seasonal Ad",
+    category: "Graphic Design",
+    description: "A café logo badge with a pumpkin mark, plus a matching Pumpkin Spice Latte banner ad that carries the same autumn palette and cozy tone.",
+    year: "2026",
+    technologies: ["Logo Design", "Digital Illustration", "Banner Ad Design", "Color Palette"],
+    role: "Designer & Illustrator",
+    status: "Completed",
+    liveUrl: "",
+    githubUrl: "",
+    detailUrl: "projects/brew-haven/",
+    featured: true,
+    image: "assets/images/brew-haven-logo.webp",
+    imageAlt: "Brew Haven logo: a cream circular badge with a pumpkin icon on a latte cup topped with whipped cream, beside a pumpkin and cinnamon sticks",
+    imageFit: "contain",
+    imageBg: "#d96a25",
+    features: ["Round badge logo with a pumpkin mark", "Autumn palette of orange, cream, and cinnamon brown", "Banner ad with the tagline “Every brew is a taste of Haven”", "Matching illustration style across logo and ad"],
+    problem: "A cozy café brand needed a logo and a seasonal promotion that look like they belong together.",
+    solution: "I designed a simple badge logo, then reused its illustration style and palette in a Pumpkin Spice Latte banner ad.",
+  },
+  {
+    id: "juicy-slices",
+    title: "Juicy Slices — Hand-Drawn Illustration",
+    category: "Graphic Design",
+    description: "A hand-drawn, marker-colored watermelon illustration with a cut slice, made for Lesson 2, Activity 2 on August 5, 2026.",
+    year: "2026",
+    technologies: ["Hand Drawing", "Markers", "Illustration"],
+    role: "Illustrator",
+    status: "Coursework",
+    liveUrl: "",
+    githubUrl: "",
+    detailUrl: "projects/juicy-slices/",
+    featured: false,
+    image: "assets/images/juicy-slices.webp",
+    imageAlt: "Hand-drawn watermelon with a cut slice, colored with markers on paper, titled Juicy Slices",
+    imageFit: "cover",
+    imageBg: "",
+    features: ["Layered green stripes for depth on the rind", "Detailed red slice with seeds", "Hand-lettered title and information block"],
+    problem: "A class activity asked for a finished illustration practicing shape, color, and presentation.",
+    solution: "I drew a single subject, colored it with markers using two greens for depth, and added a hand-lettered title and information block.",
+  },
+];
