@@ -10,9 +10,9 @@
     if (theme === "dark" || theme === "light") {
       root.setAttribute("data-theme", theme);
     } else {
-      root.removeAttribute("data-theme"); 
+      root.removeAttribute("data-theme");
     }
-  } 
+  }
 
   try {
     applyTheme(localStorage.getItem(THEME_KEY));
@@ -78,7 +78,7 @@
     const links = [];
     if (p.liveUrl) links.push('<a href="' + p.liveUrl + '" target="_blank" rel="noopener">View Project</a>');
     if (p.githubUrl) links.push('<a href="' + p.githubUrl + '" target="_blank" rel="noopener">Source Code</a>');
-    links.push('<a href="' + basePath + p.detailUrl + '">Details →</a>');
+    links.push('<button type="button" class="link-btn" data-project-id="' + esc(p.id) + '">Details →</button>');
 
     return (
       '<article class="card project-card" data-category="' +
@@ -160,10 +160,15 @@
       });
     }
 
+    var lastKey = null;
     function applyFilters() {
       const q = (searchInput && searchInput.value || "").trim().toLowerCase();
       const cat = categorySelect && categorySelect.value;
       const yr = yearSelect && yearSelect.value;
+
+      const key = q + "|" + cat + "|" + yr;
+      if (key === lastKey) return;
+      lastKey = key;
 
       const filtered = source.filter(function (p) {
         const matchesQuery =
@@ -186,6 +191,64 @@
     });
 
     if (countEl) countEl.textContent = source.length + " projects";
+  }
+
+
+  /* ---------- Project details popup ---------- */
+  function detailHTML(p, basePath) {
+    var shots = (p.screenshots || []).map(function (s) {
+      return '<figure class="detail-figure"><img src="' + basePath + esc(s.src) + '" alt="' + esc(s.alt || p.title) + '" loading="lazy" decoding="async" /></figure>';
+    }).join("");
+    var links = "";
+    if (p.liveUrl) links += '<a class="btn btn-primary" href="' + esc(p.liveUrl) + '" target="_blank" rel="noopener">Live Site</a> ';
+    if (p.githubUrl) links += '<a class="btn btn-outline" href="' + esc(p.githubUrl) + '" target="_blank" rel="noopener">GitHub</a>';
+    return '<h2 id="project-dialog-title">' + esc(p.title) + "</h2>" +
+      '<div class="project-meta"><span class="tag">' + esc(p.category) + '</span><span class="tag">' + esc(p.year) +
+      '</span><span class="status">' + esc(p.status) + "</span></div>" +
+      '<div class="detail-grid mt-2"><div>' +
+      '<div class="detail-section" style="margin-top:0"><h3>Overview</h3><p>' + esc(p.description) + "</p></div>" +
+      '<div class="detail-section"><h3>Problem</h3><p>' + esc(p.problem) + "</p></div>" +
+      '<div class="detail-section"><h3>Solution</h3><p>' + esc(p.solution) + "</p></div>" +
+      '<div class="detail-section"><h3>Features</h3><ul>' + p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("") + "</ul></div>" +
+      (links ? '<div class="detail-section"><h3>Links</h3><div class="hero-actions">' + links + "</div></div>" : "") +
+      "</div><aside>" +
+      (shots ? '<div class="detail-section" style="margin-top:0"><h3>Screenshots</h3>' + shots + "</div>" : "") +
+      '<div class="card"><dl class="info-list">' +
+      "<div><dt>My role</dt><dd>" + esc(p.role) + "</dd></div>" +
+      "<div><dt>Year</dt><dd>" + esc(p.year) + "</dd></div>" +
+      "<div><dt>Status</dt><dd>" + esc(p.status) + "</dd></div></dl>" +
+      '<h3 style="margin-top:1.25rem;font-size:1rem">Technologies used</h3>' +
+      '<div class="project-meta">' + p.technologies.map(function (t) { return '<span class="tag">' + esc(t) + "</span>"; }).join("") + "</div></div>" +
+      "</aside></div>";
+  }
+
+  function initProjectDialog() {
+    var dialog = document.getElementById("project-dialog");
+    var body = document.getElementById("project-dialog-body");
+    if (!dialog || !body || typeof PROJECTS === "undefined" || typeof dialog.showModal !== "function") return;
+    var grid = document.querySelector("[data-project-grid]");
+    var basePath = (grid && grid.getAttribute("data-base-path")) || "";
+
+    function openProject(id) {
+      var p = PROJECTS.filter(function (x) { return x.id === id; })[0];
+      if (!p) return;
+      body.innerHTML = detailHTML(p, basePath);
+      if (!dialog.open) dialog.showModal();
+      try { history.replaceState(null, "", "#project-" + id); } catch (e) {}
+    }
+
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-project-id]");
+      if (btn) openProject(btn.getAttribute("data-project-id"));
+    });
+    dialog.querySelector("[data-close-dialog]").addEventListener("click", function () { dialog.close(); });
+    dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener("close", function () {
+      if (location.hash.indexOf("#project-") === 0) {
+        try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
+      }
+    });
+    if (location.hash.indexOf("#project-") === 0) openProject(location.hash.slice(9));
   }
 
   /* ---------- Contact form (static-hosting friendly) ---------- */
@@ -222,6 +285,7 @@
     initThemeToggle();
     initMobileNav();
     initProjectGrid();
+    initProjectDialog();
     initContactForm();
   });
 })();
