@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://raphaelsevillano-cmd.github.io/sitemap.xml
