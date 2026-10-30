@@ -1,31 +1,3 @@
-/**
- * PROJECT DATA MODEL
- * -------------------
- * This is the ONLY file you need to edit to add, remove, or update a project.
- * The homepage, the Projects page, the search/filter system, and the Details popup
- * all read from this list.
- *
- * Fields:
- *  id            - unique slug (lowercase, hyphenated)
- *  title         - Project Name
- *  category      - "Web Development", "Mobile Application", "Information System", "Networking",
- *                  "Research", "Database", "Graphic Design", "Automation"
- *  description   - one or two sentence summary for the card
- *  year          - Project Date/Year
- *  technologies  - array of strings
- *  role          - Creator's Role
- *  status        - "Completed" | "In Progress" | "Coursework"
- *  liveUrl       - live/demo link, or "" if none (button only shows when a link exists)
- *  githubUrl     - source code link, or "" if none
- *  featured      - true to show on the homepage
- *  image         - path to the card image ("" if none), imageAlt - its alt text
- *  imageFit      - "cover" or "contain" (use contain for logos)
- *  imageBg       - optional background color behind a "contain" image
- *  screenshots   - array of { src, alt } shown in the Details popup
- *  features      - array of strings shown in the Details popup
- *  problem / solution - shown in the Details popup
- */
-
 const PROJECTS = [
   {
     id: "web-portfolio",
@@ -45,18 +17,18 @@ const PROJECTS = [
     imageBg: "",
     screenshots: [{"src": "assets/images/web-portfolio.webp", "alt": "Screenshot of the portfolio's Projects page showing a search bar, category and year filters, and project cards"}],
     features: ["Responsive layout with a hamburger menu on small screens", "Project search and category/year filters that update without reloading", "Dark and light mode saved in the browser", "Downloadable CV with a View Online option", "Contact form with a hidden spam-protection field", "Projects managed from a single data file"],
-    problem: "I needed one professional place to show my background, skills, and projects to employers, classmates, and instructors.",
+    problem: "I needed one place to show my background, skills, and projects to my classmates, and instructors.",
     solution: "I built a multi-page site with a shared design system based on my RS Spike brand colors, and moved all project content into one data file so adding a project never requires redesigning a page.",
   },
   {
     id: "rs-spike-logo",
     title: "RS Spike — Volleyball Brand Identity",
     category: "Graphic Design",
-    description: "A complete logo system for a personal volleyball brand: four logo variations, a locked color palette, and a mood board, built from vector concept through to a hand-drawn GIMP production file.",
+    description: "A complete logo system for a my activity that contains: four logo variations, a color palette, and a mood board, built from hand drawn sketch concept  to GIMP production file.",
     year: "2026",
-    technologies: ["GIMP", "SVG", "Design Systems", "Branding"],
+    technologies: ["GIMP", "SVG",],
     role: "Designer & Illustrator",
-    status: "In Progress",
+    status: "Completed",
     liveUrl: "https://raphaelsevillano-cmd.github.io/",
     githubUrl: "",
     featured: true,
@@ -67,7 +39,7 @@ const PROJECTS = [
     screenshots: [{"src": "assets/images/rs-spike-logo.webp", "alt": "RS Volleyball logo: a blue and yellow volleyball with a bold RS monogram, an orange spike burst, and the tagline Love at First Spike"}],
     features: ["Volleyball emblem with a bold RS monogram", "Orange spike burst that adds motion and energy", "Tagline: “Love at First Spike”", "Locked navy and gold palette reused across this portfolio"],
     problem: "A personal volleyball brand needed a recognizable identity that stays readable at different sizes and backgrounds.",
-    solution: "I combined a volleyball emblem with an RS monogram and a spike burst, locked a color palette, and built the final file by hand in GIMP.",
+    solution: "I combined a volleyball emblem with an RS monogram and a spike burst,  a color palette, and built the final file by hand in GIMP.",
   },
   {
     id: "rs-daily-brew",
