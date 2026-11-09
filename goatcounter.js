@@ -10,7 +10,7 @@
 (function () {
   "use strict";
 
-  var CODE = "YOUR-CODE";
+  var CODE = "raphaelsevillano";
   var SHOW_VISIT_COUNTER = true;   // show "Total visits" in the footer (false to hide)
 
   if (CODE === "YOUR-CODE" || !/^[a-z0-9-]+$/i.test(CODE)) return;
