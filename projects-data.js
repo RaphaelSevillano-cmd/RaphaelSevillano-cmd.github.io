@@ -83,6 +83,29 @@ const PROJECTS = [
     problem: "A cozy café brand needed a logo and a seasonal promotion that look like they belong together.",
     solution: "I designed a simple badge logo, then reused its illustration style and palette in a Pumpkin Spice Latte banner ad.",
   },
-  
+    {
+    id: "juicy-slices",
+    title: "Juicy Slices — Digital Illustration",
+    category: "Graphic Design",
+    description: "A digital redraw of my hand-drawn watermelon illustration, with a striped whole melon, a cut slice with seeds, and a title with an underline, made for Lesson 2, Activity 2.",
+    year: "2026",
+    technologies: ["Digital Illustration","Vector Art"],
+    role: "Illustrator",
+    status: "Coursework",
+    liveUrl: "",
+    githubUrl: "",
+    featured: false,
+    image: "assets/images/juicy-slices.webp",
+    imageAlt: "Digital illustration of a striped watermelon with a cut slice showing red flesh and black seeds, titled Juicy Slices",
+    imageFit: "cover",
+    imageBg: "",
+    screenshots: [
+      { src: "assets/images/juicy-slices.webp", alt: "Digital version of the Juicy Slices watermelon illustration" },
+      { src: "assets/images/juicy-slices-hand-drawn.webp", alt: "Original hand-drawn Juicy Slices watermelon made with markers on paper" }
+    ],
+    features: ["Striped whole watermelon with a highlight and soft shadow","Cut slice with a rind, a pale green band, red flesh, and seeds","Title lettering with a hand-drawn underline"],
+    problem: "A class activity asked for a finished watermelon illustration, and I wanted a clean digital version of my hand drawing.",
+    solution: "I kept my original layout, a whole melon and a cut slice, and redrew it digitally with flat colors and gradients.",
+  },
 ];
 
