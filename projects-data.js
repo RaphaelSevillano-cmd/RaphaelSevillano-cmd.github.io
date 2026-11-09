@@ -83,26 +83,6 @@ const PROJECTS = [
     problem: "A cozy café brand needed a logo and a seasonal promotion that look like they belong together.",
     solution: "I designed a simple badge logo, then reused its illustration style and palette in a Pumpkin Spice Latte banner ad.",
   },
-  {
-    id: "juicy-slices",
-    title: "Juicy Slices — Hand-Drawn Illustration",
-    category: "Graphic Design",
-    description: "A hand-drawn, marker-colored watermelon illustration with a cut slice, made for Lesson 2, Activity 2 on August 5, 2026.",
-    year: "2026",
-    technologies: ["Hand Drawing", "Markers", "Illustration"],
-    role: "Illustrator",
-    status: "Coursework",
-    liveUrl: "https://raphaelsevillano-cmd.github.io/",
-    githubUrl: "",
-    featured: false,
-    image: "assets/images/juicy-slices.webp",
-    imageAlt: "Hand-drawn watermelon with a cut slice, colored with markers on paper, titled Juicy Slices",
-    imageFit: "cover",
-    imageBg: "",
-    screenshots: [{"src": "assets/images/juicy-slices.webp", "alt": "Hand-drawn watermelon with a cut slice, colored with markers on paper, titled Juicy Slices"}],
-    features: ["Layered green stripes for depth on the rind", "Detailed red slice with seeds", "Hand-lettered title and information block"],
-    problem: "A class activity asked for a finished illustration practicing shape, color, and presentation.",
-    solution: "I drew a single subject, colored it with markers using two greens for depth, and added a hand-lettered title and information block.",
-  },
+  
 ];
 
