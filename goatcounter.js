@@ -13,7 +13,7 @@
   var CODE = "raphaelsevillano";
   var SHOW_VISIT_COUNTER = true;   // show "Total visits" in the footer (false to hide)
 
-  if (CODE === "YOUR-CODE" || !/^[a-z0-9-]+$/i.test(CODE)) return;
+  if (CODE === "raphaelsevillano" || !/^[a-z0-9-]+$/i.test(CODE)) return;
 
   var base = "https://" + CODE + ".goatcounter.com";
 
