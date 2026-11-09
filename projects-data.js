@@ -47,7 +47,7 @@ const PROJECTS = [
     category: "Graphic Design",
     description: "A typography-driven brand poster for a coffee brand: a bold RS monogram, curved taglines, a two-tone brown and caramel palette, and a three-item menu with prices.",
     year: "2026",
-    technologies: ["Typography", "Brand Identity", "Menu Design", "Layout"],
+    technologies: ["Typography", "Brand Identity", "Menu Design", "Layout" ,"Canva" ],
     role: "Designer",
     status: "Completed",
     liveUrl: "https://raphaelsevillano-cmd.github.io/",
