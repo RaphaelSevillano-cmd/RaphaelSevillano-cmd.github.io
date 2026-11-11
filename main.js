@@ -281,11 +281,22 @@
     });
   }
 
+  /* ---------- GoatCounter analytics (added once, on every page) ---------- */
+  function initAnalytics() {
+    if (document.querySelector("script[data-goatcounter]")) return; // already on this page
+    var s = document.createElement("script");
+    s.async = true;
+    s.setAttribute("data-goatcounter", "https://raphaelsevillano.goatcounter.com/count");
+    s.src = "https://gc.zgo.at/count.js";
+    document.head.appendChild(s);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initThemeToggle();
     initMobileNav();
     initProjectGrid();
     initProjectDialog();
     initContactForm();
+    initAnalytics();
   });
 })();
