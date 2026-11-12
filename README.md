@@ -28,7 +28,7 @@ Each project opens a details popup (overview, problem, solution, features, scree
 - Contact form with a hidden honeypot field for spam protection, delivered through Formspree
 - SEO: page titles, meta descriptions, canonical URLs, Open Graph tags, `robots.txt`, and `sitemap.xml`
 - Accessibility: semantic headings, alt text, labeled form fields, keyboard focus indicators, and reduced-motion support
-
+- Analytics: used goatcounter to view numbers of visitors and page visited
 ## Technologies
 
 HTML5, CSS3, and vanilla JavaScript, with Google Fonts (Space Grotesk and Inter). No frameworks or build step.
